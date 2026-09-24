@@ -1,0 +1,66 @@
+body{
+    background-color: #1c1b1b;
+    font-family: Arial, sans-serif;
+    margin-left: 15px;
+    color:white
+}
+.css-heading{
+    /* color:aliceblue; */
+    font-size: 50px;
+    font-weight: bold;
+}
+.css-rock{
+    border: 5px solid #f5f2f2;
+    background-color:transparent;
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    margin-right: 20px;
+    /* margin-left: 10px; */
+}
+.css-paper{
+    border: 5px solid #f5f2f2;
+    background-color: #1c1b1b;
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    margin-right: 20px;
+}
+.css-scissor{
+    border: 3px solid #f5f2f2;
+    background-color: #1c1b1b;
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+}
+.css-para{
+    /* color: aliceblue; */
+    font-size: 20px;
+}
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 60%;
+}
+.css-reset{
+    height: 40px;
+    width: 130px;
+    font-size: 17px;
+    padding: 0px 7px;
+    font-weight:600;
+}
+.css-para1{
+    /* color: aliceblue; */
+    font-size: 30px;
+    font-weight: bolder;
+}
+.css-para2{
+    /* color: aliceblue; */
+    font-size: 20px;
+    
+}
+/* .move-icon{
+    height: 0px;
+    width: 60px;
+} */

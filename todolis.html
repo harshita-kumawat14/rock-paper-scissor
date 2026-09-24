@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice</title>
+    <link rel="stylesheet" href="css/practice.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+    .css-btn2{
+        background-color: #333;
+        color: #f0f0f0;
+    }
+    :root{
+        --ink: #19313a;
+        --muted: #6e7d82;
+        --line: #d9e3e4;
+        --surface: #ffffff;
+        --page: #edf4f2;
+        --accent: #147d73;
+        --accent-dark: #0d6058;
+        --danger: #b4493d;
+    }
+    *{
+        box-sizing: border-box;
+    }
+    body{
+        min-height: 100vh;
+        margin: 0;
+        padding: 48px 20px;
+        color: var(--ink);
+        font-family: 'Roboto Flex', Arial, sans-serif;
+        background: linear-gradient(135deg, #edf4f2 0%, #dfeceb 100%);
+    }
+    body > .js-para4,
+    body > .css-Todolist,
+    body > .todolist{
+        width: min(760px, 100%);
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .css-todolist ,.css-Todolist{
+        display: grid;
+        gap: 12px;
+        align-items: center;
+    }
+    .css-headline{
+        margin: 0 auto 22px;
+        color: var(--ink);
+        font-size: clamp(28px, 5vw, 42px);
+        font-weight: 800;
+        letter-spacing: -1px;
+    }
+    .css-headline::after{
+        display: block;
+        width: 44px;
+        height: 4px;
+        margin-top: 10px;
+        border-radius: 4px;
+        background: var(--accent);
+        content: '';
+    }
+    .css-Todolist{
+        grid-template-columns: minmax(0, 1fr) 160px 90px;
+        margin-bottom: 24px;
+    }
+    .css-todo ,.css-date{
+        width: 100%;
+        min-width: 0;
+        padding: 12px 14px;
+        color: var(--ink);
+        font: inherit;
+        font-size: 15px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+        box-shadow: 0 5px 18px rgba(25, 49, 58, .06);
+    }
+    .css-todo:focus, .css-date:focus, .edit-input:focus{
+        outline: 3px solid rgba(20, 125, 115, .18);
+        border-color: var(--accent);
+    }
+    button{
+        cursor: pointer;
+        font: inherit;
+        font-weight: 700;
+        transition: transform .15s ease, filter .15s ease;
+    }
+    button:hover{
+        filter: brightness(1.08);
+        transform: translateY(-1px);
+    }
+    button:focus-visible{
+        outline: 3px solid rgba(20, 125, 115, .3);
+        outline-offset: 2px;
+    }
+    .add-btn, .delete-btn, .edit-btn, .save-btn, .cancel-btn{
+        padding: 11px 10px;
+        border: 0;
+        border-radius: 8px;
+        color: white;
+    }
+    .add-btn{
+        background: var(--accent);
+    }
+    .add-btn:hover{
+        background: var(--accent-dark);
+    }
+    .css-todolist{
+        grid-template-columns: 30px minmax(150px, 1fr) 130px 70px 80px;
+        padding: 18px;
+        border: 1px solid rgba(217, 227, 228, .9);
+        border-radius: 12px;
+        background: var(--surface);
+        box-shadow: 0 14px 35px rgba(25, 49, 58, .08);
+        font-size: 15px;
+    }
+    .css-todolist:empty{
+        display: none;
+    }
+    .delete-btn{
+        background: var(--danger);
+    }
+    .edit-btn, .save-btn{
+        background: #326b8a;
+    }
+    .cancel-btn{
+        background: var(--muted);
+    }
+    .todo-name.completed{
+        color: var(--muted);
+        text-decoration: line-through;
+    }
+    .edit-input{
+        width: 100%;
+        min-width: 0;
+        padding: 9px;
+        font: inherit;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+    }
+    .js-complete-btn{
+        width: 18px;
+        height: 18px;
+        accent-color: var(--accent);
+        cursor: pointer;
+    }
+    @media (max-width: 620px){
+        body{
+            padding: 28px 14px;
+        }
+        .css-Todolist{
+            grid-template-columns: 1fr 1fr;
+        }
+        .css-todo{
+            grid-column: 1 / -1;
+        }
+        .add-btn{
+            grid-column: 1 / -1;
+        }
+        .css-todolist{
+            grid-template-columns: 28px minmax(0, 1fr) 90px;
+            padding: 14px 10px;
+        }
+        .css-todolist .edit-btn,
+        .css-todolist .delete-btn{
+            grid-column: span 1;
+        }
+    }
+
+</style>
+</head>
+<body><p class="js-para4 css-headline">TODO List</p>
+    <div class="css-Todolist">
+<input placeholder="Todo list" class="js-input css-todo" >
+<input type="date" class="js-date css-date" required>
+<button class="add-btn js-add">Add</button>
+</div>
+<div class="todolist css-todolist"></div>
+</div>
+<script>
+        let todolist=JSON.parse(localStorage.getItem('todolist'))||[{
+    name: 'make dinner',
+        datevalue: '2022-12-22',
+        completed: false
+  }];
+    
+    renderTodoList();
+    function renderTodoList(){
+        let todolistHTML='';
+        for(let i=0;i<todolist.length;i++){
+            const todoobj=todolist[i];
+            const {name,datevalue}=todoobj;
+            const html=`<input type="checkbox" class="js-complete-btn" ${todoobj.completed ? 'checked' : ''} aria-label="Mark ${name} as complete">
+                <div class="todo-name ${todoobj.completed ? 'completed' : ''}">
+                ${name}</div> 
+                <div>${datevalue}</div>
+                <button class="edit-btn js-edit-btn">Edit</button>
+                <button class="delete-btn js-delete-btn">Delete</button>
+            `;
+            todolistHTML+=html;
+
+        }
+        document.querySelector('.todolist').innerHTML=todolistHTML;
+        document.querySelectorAll('.js-delete-btn')
+         .forEach((deleteBtn,index)=>{
+            deleteBtn.addEventListener('click',()=>{
+                todolist.splice(index, 1); 
+                savetoStorage(); renderTodoList(); 
+            });
+        });
+        document.querySelectorAll('.js-complete-btn')
+         .forEach((completeBtn,index)=>{
+            completeBtn.addEventListener('change',()=>{
+                todolist[index].completed=completeBtn.checked;
+                savetoStorage(); renderTodoList();
+            });
+        });
+        document.querySelectorAll('.js-edit-btn')
+         .forEach((editBtn,index)=>{
+            editBtn.addEventListener('click',()=>{
+                const todo=todolist[index];
+                const todoRow=editBtn.parentElement;
+                todoRow.innerHTML=`<input type="checkbox" disabled ${todo.completed ? 'checked' : ''}>
+                    <input class="edit-input js-edit-name" value="${todo.name}">
+                    <input type="date" class="edit-input js-edit-date" value="${todo.datevalue}">
+                    <button class="save-btn js-save-btn">Save</button>
+                    <button class="cancel-btn js-cancel-btn">Cancel</button>`;
+                todoRow.querySelector('.js-save-btn').addEventListener('click',()=>{
+                    const name=todoRow.querySelector('.js-edit-name').value.trim();
+                    const datevalue=todoRow.querySelector('.js-edit-date').value;
+                    if(name === '' || datevalue === ''){return;}
+                    todo.name=name;
+                    todo.datevalue=datevalue;
+                    savetoStorage(); renderTodoList();
+                });
+                todoRow.querySelector('.js-cancel-btn').addEventListener('click',renderTodoList);
+            });
+        });
+    }
+document.querySelector('.js-add').addEventListener('click',()=>{
+addtodo();
+})
+    
+    function addtodo(){
+       
+        let name=document.querySelector('.js-input').value;
+       let dateInputElem=document.querySelector('.js-date'); 
+       let datevalue=dateInputElem.value;
+       if(name === ''|| datevalue === ''){return;}
+        todolist.push({name, datevalue, completed: false});
+        console.log(todolist);
+        document.querySelector('.js-input').value='';
+        datevalue='';
+        savetoStorage()
+        renderTodoList();
+    }
+    function savetoStorage(){
+    localStorage.setItem('todolist' , JSON.stringify(todolist));
+    }
+    </script>
+</body>
+</html>
